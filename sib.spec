@@ -34,7 +34,8 @@ do serwera tuneluj±cego) mog± byæ tunelowane.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d	$RPM_BUILD_ROOT%{_sbindir}
+install -d $RPM_BUILD_ROOT%{_sbindir}
+
 install bin/sib	$RPM_BUILD_ROOT%{_sbindir}
 
 gzip -9nf AUTHORS ChangeLog COMPABILITY README THANKS TODO
