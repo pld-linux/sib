@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		Daemons
 Source0:	http://members.aon.at/stsz/sib/%{name}-%{version}.tar.gz
+# Source0-md5:	c60a708cd30b07bf82ce93584f49762e
 URL:		http://members.aon.at/stsz/sib/
 BuildRequires:	lzo-devel
 BuildRequires:	libstdc++-devel
