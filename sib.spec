@@ -30,7 +30,7 @@ do serwera tuneluj±cego) mog± byæ tunelowane.
 %setup -q
 
 %build
-%{__make} GPPOPT="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS}"
+%{__make} GPPOPT="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
