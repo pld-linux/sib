@@ -36,12 +36,11 @@ install -d $RPM_BUILD_ROOT%{_sbindir}
 
 install bin/sib	$RPM_BUILD_ROOT%{_sbindir}
 
-gzip -9nf AUTHORS ChangeLog COMPABILITY README THANKS TODO
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc AUTHORS ChangeLog COMPABILITY README THANKS TODO
 %attr(755,root,root) %{_sbindir}/*
