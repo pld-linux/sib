@@ -1,7 +1,7 @@
 Summary:	simple IPX bridge
 Summary(pl):	prosty tunel IPX
 Name:		sib
-Version:	1.0h
+Version:	1.1
 Release:	1
 License:	GPL
 Group:		Daemons
@@ -35,7 +35,7 @@ do serwera tuneluj±cego) mog± byæ tunelowane.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d	$RPM_BUILD_ROOT%{_sbindir}
-install sib	$RPM_BUILD_ROOT%{_sbindir}
+install bin/sib	$RPM_BUILD_ROOT%{_sbindir}
 
 gzip -9nf AUTHORS ChangeLog COMPABILITY README THANKS TODO
 
