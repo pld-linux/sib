@@ -5,8 +5,6 @@ Version:	1.1
 Release:	1
 License:	GPL
 Group:		Daemons
-Group(de):	Server
-Group(pl):	Serwery
 Source0:	http://members.aon.at/stsz/sib/%{name}-%{version}.tar.gz
 URL:		http://members.aon.at/stsz/sib/
 BuildRequires:	lzo-devel
