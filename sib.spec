@@ -1,15 +1,17 @@
 Summary:	simple IPX bridge
 Summary(pl):	prosty tunel IPX
 Name:		sib
-Version:	1.1
+Version:	1.2
 Release:	1
 License:	GPL
 Group:		Daemons
+#Source0Download: http://members.aon.at/stsz/sib/download.html
 Source0:	http://members.aon.at/stsz/sib/%{name}-%{version}.tar.gz
-# Source0-md5:	c60a708cd30b07bf82ce93584f49762e
+# Source0-md5:	ab9aed3f65676c3d9fc441dbefb12320
+Patch0:		%{name}-fixes.patch
 URL:		http://members.aon.at/stsz/sib/
-BuildRequires:	lzo-devel
 BuildRequires:	libstdc++-devel
+BuildRequires:	lzo-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -27,9 +29,12 @@ do serwera tuneluj±cego) mog± byæ tunelowane.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
-%{__make} GPPOPT="%{rpmcflags}"
+%{__make} \
+	GPPC="%{__cxx}" \
+	GPPOPT="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -37,11 +42,10 @@ install -d $RPM_BUILD_ROOT%{_sbindir}
 
 install bin/sib	$RPM_BUILD_ROOT%{_sbindir}
 
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog COMPABILITY README THANKS TODO
+%doc AUTHORS COMPATIBILITY ChangeLog README THANKS TODO
 %attr(755,root,root) %{_sbindir}/*
