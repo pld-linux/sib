@@ -1,0 +1,41 @@
+--- sib-1.2/src/multiplex.h.orig	2001-09-23 21:52:41.000000000 +0200
++++ sib-1.2/src/multiplex.h	2004-04-08 01:50:59.841665504 +0200
+@@ -36,6 +36,7 @@
+ #ifdef HAVE_LZO
+ #include <lzoconf.h>
+ #include <lzo1x.h>
++#include <lzoutil.h>
+ #endif
+ 
+ struct MPFrame {
+--- sib-1.2/src/main.cpp.orig	2001-09-23 21:52:41.000000000 +0200
++++ sib-1.2/src/main.cpp	2004-04-08 01:51:50.840912440 +0200
+@@ -72,7 +72,7 @@
+ #ifdef HAVE_LZO
+  if( config.doCompression) {
+   lzo_init();
+-  lzo_wrkmem = lzo_malloc(LZO1X_1_MEM_COMPRESS);
++  lzo_wrkmem = (u_char*)lzo_malloc(LZO1X_1_MEM_COMPRESS);
+  }
+ #endif 
+ 
+--- sib-1.2/src/Makefile.orig	2001-09-23 21:52:41.000000000 +0200
++++ sib-1.2/src/Makefile	2004-04-08 01:52:38.727632552 +0200
+@@ -10,7 +10,7 @@
+ BINPREFIX = /usr/bin
+ 
+ # maybe you want to change this too
+-GPP = gcc
++GPPC = g++
+ GPPOPT = -O3 -Wall -rdynamic
+ DOSTRIP = yes
+ LIBLNK += -ldl
+@@ -25,7 +25,7 @@
+ GPP_LI += -L$(LZOLIB) -I$(LZOINC)
+ endif
+ 
+-GPP := $(GPP) $(GPPOPT) $(DEFINES) $(GPP_LI)
++GPP := $(GPPC) $(GPPOPT) $(DEFINES) $(GPP_LI)
+ 
+ all: sib
+ 
