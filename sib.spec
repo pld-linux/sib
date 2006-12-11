@@ -2,16 +2,17 @@ Summary:	simple IPX bridge
 Summary(pl):	prosty tunel IPX
 Name:		sib
 Version:	1.2
-Release:	1
+Release:	2
 License:	GPL
 Group:		Daemons
 #Source0Download: http://members.aon.at/stsz/sib/download.html
 Source0:	http://members.aon.at/stsz/sib/%{name}-%{version}.tar.gz
 # Source0-md5:	ab9aed3f65676c3d9fc441dbefb12320
 Patch0:		%{name}-fixes.patch
+Patch1:		%{name}-lzo2.patch
 URL:		http://members.aon.at/stsz/sib/
 BuildRequires:	libstdc++-devel
-BuildRequires:	lzo-devel
+BuildRequires:	lzo-devel >= 2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -30,9 +31,11 @@ do serwera tuneluj±cego) mog± byæ tunelowane.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__make} \
+	LIB="%{_lib}" \
 	GPPC="%{__cxx}" \
 	GPPOPT="%{rpmcflags}"
 
