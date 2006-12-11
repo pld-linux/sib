@@ -21,8 +21,8 @@
  GPP_LI += -L$(LZOLIB) -I$(LZOINC)
  endif
  
---- sib-1.2/src/multiplex.cpp~	2006-12-12 01:52:42.504632239 +0200
-+++ sib-1.2/src/multiplex.cpp	2006-12-12 01:52:50.534813685 +0200
+--- sib-1.2/src/multiplex.cpp~	2006-12-12 01:54:21.406866821 +0200
++++ sib-1.2/src/multiplex.cpp	2006-12-12 01:54:24.996947928 +0200
 @@ -29,7 +29,7 @@
  int enMultiplex( u_char *frame, u_int len)
  {
@@ -32,6 +32,15 @@
   bool override = false;
   
   // send a "standard" frame
+@@ -87,7 +87,7 @@
+  else
+   memcpy( buf+1, frame, len);
+  
+- if( config.debug) printf( "ETH (%u) -> UDP (%u)\n", len, newlen);
++ if( config.debug) printf( "ETH (%u) -> UDP (%lu)\n", len, newlen);
+  
+  // to avoid negative compression stats newlen-1 is used (CONTROL byte)
+  if( config.statsInterval > 0) newFrame( STAT_SENT, len, newlen-1);
 @@ -96,7 +96,7 @@
  
  int deMultiplex( u_char *frame, u_int len)
@@ -41,3 +50,12 @@
   static u_char buf[MAX_BUF_LEN];
   if( len == 0) return 1;
   
+@@ -121,7 +121,7 @@
+   memcpy( buf, frame+1, newlen);
+  }     
+ 
+- if( config.debug) printf( "UDP (%u) -> ETH (%u)\n", len, newlen);
++ if( config.debug) printf( "UDP (%u) -> ETH (%lu)\n", len, newlen);
+  // len-1 for control byte compensation
+  if( config.statsInterval > 0) newFrame( STAT_RECV, newlen, len-1);
+   
