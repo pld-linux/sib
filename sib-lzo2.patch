@@ -21,3 +21,23 @@
  GPP_LI += -L$(LZOLIB) -I$(LZOINC)
  endif
  
+--- sib-1.2/src/multiplex.cpp~	2006-12-12 01:52:42.504632239 +0200
++++ sib-1.2/src/multiplex.cpp	2006-12-12 01:52:50.534813685 +0200
+@@ -29,7 +29,7 @@
+ int enMultiplex( u_char *frame, u_int len)
+ {
+  static u_char buf[MAX_BUF_LEN];
+- u_int newlen = len+1;
++ lzo_uint  newlen = len+1;
+  bool override = false;
+  
+  // send a "standard" frame
+@@ -96,7 +96,7 @@
+ 
+ int deMultiplex( u_char *frame, u_int len)
+ {
+- u_int newlen = len-1;
++ lzo_uint  newlen = len-1;
+  static u_char buf[MAX_BUF_LEN];
+  if( len == 0) return 1;
+  
