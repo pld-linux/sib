@@ -1,0 +1,23 @@
+--- sib-1.2/src/Makefile~	2006-12-12 01:44:31.103615668 +0200
++++ sib-1.2/src/Makefile	2006-12-12 01:47:41.957892286 +0200
+@@ -3,8 +3,9 @@
+ # change this to no if you don't want compression or don't have the LZO lib
+ USELZO = yes
+ # change this if your LZO library is somewhere else
+-LZOLIB = /usr/local/lib
+-LZOINC = /usr/local/include
++LIB = lib
++LZOLIB = /usr/$(LIB)
++LZOINC = /usr/include/lzo
+ 
+ # change this if you want sib to be installed somewhere else
+ BINPREFIX = /usr/bin
+@@ -21,7 +22,7 @@
+ 
+ ifeq ("$(USELZO)", "yes")
+ DEFINES += -DHAVE_LZO
+-LIBLNK += -llzo 
++LIBLNK += -llzo2
+ GPP_LI += -L$(LZOLIB) -I$(LZOINC)
+ endif
+ 
