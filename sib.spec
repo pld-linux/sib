@@ -1,5 +1,5 @@
 Summary:	simple IPX bridge
-Summary(pl.UTF-8):   prosty tunel IPX
+Summary(pl.UTF-8):	prosty tunel IPX
 Name:		sib
 Version:	1.2
 Release:	2
