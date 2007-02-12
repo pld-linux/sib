@@ -1,5 +1,5 @@
 Summary:	simple IPX bridge
-Summary(pl):	prosty tunel IPX
+Summary(pl.UTF-8):   prosty tunel IPX
 Name:		sib
 Version:	1.2
 Release:	2
@@ -21,12 +21,12 @@ SIB - simple IPX bridge - is a tool for tunneling IPX (and even IP and
 put the interface it listens on to promiscous mode, so all frames (not
 only broadcasts, and frames for the tunneling server) can be received.
 
-%description -l pl
-SIB - prosty most IPX - to narzêdzie pozwalaj±ce na tunelowanie IPX (a
-nawet IP oraz 802.3) przy u¿yciu UDP poprzez publiczn± sieæ (np.
-Internet). Program potrafi uaktywniæ tryb promiscous na interfejsie
-sieciowym dziêki czemu wszystkie ramki (nie tylko broadcasty czy ramki
-do serwera tuneluj±cego) mog± byæ tunelowane.
+%description -l pl.UTF-8
+SIB - prosty most IPX - to narzÄ™dzie pozwalajÄ…ce na tunelowanie IPX (a
+nawet IP oraz 802.3) przy uÅ¼yciu UDP poprzez publicznÄ… sieÄ‡ (np.
+Internet). Program potrafi uaktywniÄ‡ tryb promiscous na interfejsie
+sieciowym dziÄ™ki czemu wszystkie ramki (nie tylko broadcasty czy ramki
+do serwera tunelujÄ…cego) mogÄ… byÄ‡ tunelowane.
 
 %prep
 %setup -q
